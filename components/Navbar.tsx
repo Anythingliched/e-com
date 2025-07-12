@@ -19,8 +19,8 @@ const Navbar = () => {
                 <ul className='flex items-center justify-center pr-15 gap-x-6 text-lg'>
                     <li><DropdownMenu>
                         <DropdownMenuTrigger>Your Account</DropdownMenuTrigger>
-                        <DropdownMenuContent>
-                            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                        <DropdownMenuContent className='bg-white'>
+                            <DropdownMenuLabel>Manage Account</DropdownMenuLabel>
                             <DropdownMenuSeparator />
                             <DropdownMenuItem>Profile</DropdownMenuItem>
                             <DropdownMenuItem>Billing</DropdownMenuItem>
