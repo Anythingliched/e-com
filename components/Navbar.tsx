@@ -2,17 +2,20 @@ import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image';
 import SearchBar from './ui/search';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { ShoppingCart } from 'lucide-react';
 
 const Navbar = () => {
     return (
         <nav className='bg-[#008080] text-white w-full h-22 flex justify-between items-center gap-x-4 p-4'>
             <div className="logo">
                 <div className="icon">
-                    <Image src="/FlipaZon-logo-text.png" height={45} width={300} alt='flipazon-slogan-logo' />
+                    <Link href='/'>
+                        <Image src="/FlipaZon-logo-text.png" height={45} width={300} alt='flipazon-slogan-logo' />
+                    </Link>
                 </div>
             </div>
-            <div className="searchbar flex items-center justify-center bg-white text-black rounded-lg">
+            <div className="searchbar">
                 <SearchBar />
             </div>
             <div className="navigators">
@@ -20,15 +23,34 @@ const Navbar = () => {
                     <li><DropdownMenu>
                         <DropdownMenuTrigger>Your Account</DropdownMenuTrigger>
                         <DropdownMenuContent className='bg-white'>
-                            <DropdownMenuLabel>Manage Account</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>Profile</DropdownMenuItem>
-                            <DropdownMenuItem>Billing</DropdownMenuItem>
-                            <DropdownMenuItem>Team</DropdownMenuItem>
-                            <DropdownMenuItem>Subscription</DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href='/'>
+                                    Your Profile
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href='/shopping-cart'>
+                                    Your Cart
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href='/orders-history'>
+                                    Your Orders
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href='/track-orders'>
+                                    Track Orders
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href='/help'>
+                                    Help
+                                </Link>
+                            </DropdownMenuItem>
                         </DropdownMenuContent>
                     </DropdownMenu></li>
-                    <li><Link href='/'>Cart</Link></li>
+                    <li><Link href='/shopping-cart'><ShoppingCart /></Link></li>
                 </ul>
             </div>
         </nav>
